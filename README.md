@@ -33,9 +33,13 @@ docker-machine version
 docker-machine create --driver virtualbox --virtualbox-cpu-count 2 --virtualbox-disk-size 10000 --virtualbox-memory 4096 --virtualbox-boot2docker-url https://releases.rancher.com/os/latest/rancheros.iso vmmtie
 ``` 
 _--virtualbox-cpu-count: Número de CPU que se utilizarán para crear la máquina virtual._ 
+ 
 _--virtualbox-disk-size: Tamaño del disco para el host en MB._ 
+ 
 _--virtualbox-memory: Tamaño de la memoria del host en MB._ 
+ 
 _--virtualbox-boot2docker-url: URL de la imagen de boot2docker (Última versión disponible)._ 
+ 
 2. Ver el listado de las máquinas disponibles. 
 ``` 
 docker-machine ls 
