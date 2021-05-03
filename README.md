@@ -87,16 +87,17 @@ sudo docker-compose up --build -d
 ### Lista de comandos
 Comando | Descripción
 ------------ | -------------
-docker-machine rm * *nombre máquina* * | Eliminar máquina creada
+docker-machine rm *nombre máquina* | Eliminar máquina creada
 docker ps | Ver en un listado de los contenedores que están corriendo
 docker ps -a | Ver en un listado todos los contenedores
 docker rm -f $(docker ps -qa) | Eliminar todos los contenedores
-docker logs --follow --tail 10 * *nombre contenedor* * | Muestra el número de líneas indicadas del registro de salida
-sudo rm -r * *nombre carpeta* * | eliminar carpeta
+docker logs --follow --tail 10 *nombre contenedor* | Muestra el número de líneas indicadas del registro de salida
+sudo rm -r *nombre carpeta* | eliminar carpeta
 
 ### Solución de errores 
 En caso de que el contenedor de MySQL durante la revisión de los logs muestre el siguiente error: 
 > mbind: Operation not permitted 
+ 
 Agregar en el archivo de **\*docker-compose\*** las siguientes líneas: 
 ``` 
 cap_add:
