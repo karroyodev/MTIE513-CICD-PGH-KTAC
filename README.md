@@ -3,8 +3,8 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
 
 ## Requisitos previos
 ### Instalación de Docker Machine en Windows
-1. Deshabilitar **Hyper-V** por medio de * *Activar o desactivar las características de Windows* *. 
-   - En caso de contar con Windows 10 Home, deshabilitar las opciones de * *Virtual Machine Platform* * y * *Windows Hypervisor Platform* *. 
+1. Deshabilitar **Hyper-V** por medio de *Activar o desactivar las características de Windows*. 
+   - En caso de contar con Windows 10 Home, deshabilitar las opciones de *Virtual Machine Platform* y *Windows Hypervisor Platform*. 
 2. Instalar [VirtualBox](https://www.virtualbox.org/wiki/Downloads). 
 3. Abrir la consola de **Windows PowerShell**; de preferencia como administrador y ejecutar el siguiente comando: 
 ``` 
@@ -28,33 +28,33 @@ choco install docker-machine
 docker-machine version 
 ``` 
 ### Crea una maquina con docker-machine 
-1. Para crear la máquina, a la cual llamamos \*vmmtie\*; se debe ejecutar el siguiente comando: 
+1. Para crear la máquina, a la cual llamamos **\*vmmtie\***; se debe ejecutar el siguiente comando: 
 ``` 
 docker-machine create --driver virtualbox --virtualbox-cpu-count 2 --virtualbox-disk-size 10000 --virtualbox-memory 4096 --virtualbox-boot2docker-url https://releases.rancher.com/os/latest/rancheros.iso vmmtie
 ``` 
-_ _--virtualbox-cpu-count: Número de CPU que se utilizarán para crear la máquina virtual._ _ 
-_ _--virtualbox-disk-size: Tamaño del disco para el host en MB._ _ 
-_ _--virtualbox-memory: Tamaño de la memoria del host en MB._ _ 
-_ _--virtualbox-boot2docker-url: URL de la imagen de boot2docker (Última versión disponible)._ _ 
+_--virtualbox-cpu-count: Número de CPU que se utilizarán para crear la máquina virtual._ 
+_--virtualbox-disk-size: Tamaño del disco para el host en MB._ 
+_--virtualbox-memory: Tamaño de la memoria del host en MB._ 
+_--virtualbox-boot2docker-url: URL de la imagen de boot2docker (Última versión disponible)._ 
 2. Ver el listado de las máquinas disponibles. 
 ``` 
 docker-machine ls 
 ``` 
 3. Para iniciar o detener la máquina. 
 ``` 
-docker-machine stop * *nombre mv* * 
-docker-machine start * *nombre mv* * 
+docker-machine stop NOMBRE_MV 
+docker-machine start NOMBRE_MV 
 ``` 
 ### Instalación de contenedores 
 1. Entrar a la máquina creada en la sección anterior. 
 ``` 
-docker-machine ssh * *nombre mv* * 
+docker-machine ssh NOMBRE_MV 
 ``` 
 2. Configurar variable **vm.max_map_count** dentro del archivo de configuración sysctl. 
 ``` 
 sudo vi /etc/sysctl.conf 
 ``` 
-Agregar al final del archivo: **_ _vm.max_map_count=2621444_ _**. 
+Agregar al final del archivo: **vm.max_map_count=2621444**. 
 Para volver a cargar la configuración del archivo con el nuevo valor, ejecutar:
 ``` 
 sudo sysctl -p 
@@ -80,12 +80,13 @@ Revisar que los permisos se hayan concedido con
 ``` 
 ls -l 
 ``` 
-6. Entrar a la carpeta creada al clonar el repositorio. Crear los contenedores con el archivo YAML llamado \*docker-compose\*. 
+6. Entrar a la carpeta creada al clonar el repositorio. Crear los contenedores con el archivo YAML llamado **\*docker-compose\***. 
 ``` 
 sudo docker-compose up --build -d 
 ``` 
 ### Lista de comandos
 Comando | Descripción
+------------ | -------------
 docker-machine rm * *nombre máquina* * | Eliminar máquina creada
 docker ps | Ver en un listado de los contenedores que están corriendo
 docker ps -a | Ver en un listado todos los contenedores
@@ -96,7 +97,7 @@ sudo rm -r * *nombre carpeta* * | eliminar carpeta
 ### Solución de errores 
 En caso de que el contenedor de MySQL durante la revisión de los logs muestre el siguiente error: 
 > mbind: Operation not permitted 
-Agregar en el archivo de \*docker-compose\* las siguientes líneas: 
+Agregar en el archivo de **\*docker-compose\*** las siguientes líneas: 
 ``` 
 cap_add:
     - SYS_NICE  # CAP_SYS_NICE
