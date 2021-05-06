@@ -17,7 +17,7 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
 
     [![VirtualBox](https://www.igestweb.es/blog/wp-content/uploads/2017/09/Virtualbox-logo.jpg)](https://www.virtualbox.org/wiki/Downloads)
 
-3. Abrir la consola de **Windows PowerShell** <img src="https://cdn.iconscout.com/icon/free/png-512/powershell-2-569189.png" alt="powershell" style="width:25px !important; height:auto !important;"/>; de preferencia como administrador y ejecutar el siguiente comando: 
+3. Abrir la consola de **Windows PowerShell**; de preferencia como administrador y ejecutar el siguiente comando: 
 
     ``` 
     > bcdedit /set hypervisorlaunchtype off 
@@ -30,8 +30,7 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
 
 ### Instalación de Chocolatey
 
-5. Instalar **Chocolatey** [<img src="https://banner2.cleanpng.com/20180603/flu/kisspng-chocolatey-package-manager-nuget-installation-comp-kyle-hebert-5b14463ad34fe5.0033113915280553548656.jpg" alt="chocolatey" style="width:38px;"/>](https://chocolatey.org/install) con **Windows PowerShell** <img src="https://cdn.iconscout.com/icon/free/png-512/powershell-2-569189.png" alt="powershell" style="width:25px;"/>
-con los siguientes comandos: 
+5. Instalar **Chocolatey** con **Windows PowerShell** con los siguientes comandos: 
 
     ``` 
     > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
