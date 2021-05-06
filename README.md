@@ -6,6 +6,33 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
 
 ## Introducción
 
+Crear una solución de inteligencia de negocios con Kibana, la cual nos proporciona la visualización de datos y de búsqueda para los datos indexados en Elasticsearch; que es un motor de analítica y análisis distribuido para todos los tipos de datos, además de poder obtener información de varias fuentes (En este caso MySQL). 
+
+Para procesar los datos y enviarlos a Elasticsearch se utiliza Logstash, que es una tubería (pipeline) del lado del servidor que permite ingestar datos de múltiples fuentes de manera simultánea para enriquecerlos y transformarlos antes de que se indexen en Elasticsearch. 
+
+Toda estos componentes de la infraestructura se creará a través del uso de contenedores. 
+
+- [x] MySQL 
+- [x] Logstash 
+- [x] Elasticsearch 
+- [x] Kibana 
+
+Dashboard de Kibana para la visualización y gestión de datos: 
+> kibana.karroyodev.net
+
+**CONTENIDO** 
+1. [ Requisitos previos ](#previos)
+    - [ Instalación de Docker Desktop ](#docker-desktop)
+    - [ Instalación de Chocolatey ](#choco)
+    - [ Instalación de Docker Machine ](#docker-machine)
+2. [ Creación de máquina con Docker Machine ](#crear-machine)
+3. [ Creación de contenedores ](#crear-contenedores) 
+    - [ Instalación de docker-compose ](#docker-compose)
+    - [ Clonar repositorio con archivos de configuración ](#clonar)
+4. [ Referencia de líneas de comandos ](#ref-comandos) 
+5. [ Solución de errores ](#errores) 
+
+<a name="previos"></a> 
 ## Requisitos previos
 
 1. Deshabilitar **Hyper-V** por medio de *Activar o desactivar las características de Windows*. 
@@ -22,6 +49,8 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     ``` 
     > bcdedit /set hypervisorlaunchtype off 
     ``` 
+
+<a name="docker-desktop"></a> 
 ### Instalación de Docker Desktop
 
 4. Instalar [Docker Desktop](https://www.docker.com/products/docker-desktop) y posteriormente reiniciar la computadora. 
@@ -32,9 +61,10 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     
     [![Docker Error](https://user-images.githubusercontent.com/59643335/103649036-13a48000-4f5e-11eb-8154-bce9cfccf31b.png) 
 
+<a name="choco"></a> 
 ### Instalación de Chocolatey
 
-5. Instalar **Chocolatey** <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Chocolatey_icon.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="28" height="28" /> con **Windows PowerShell** con los siguientes comandos: 
+5. Instalar **Chocolatey** <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Chocolatey_icon.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="28" height="28" /> con **Windows PowerShell** <img src="https://4.bp.blogspot.com/-VnHaVPAfOms/XDepW52T1BI/AAAAAAAAGQo/ZzujNs2KPkEmmtF1Astea01BkZ6RGStswCLcBGAs/s1600/powershell.png" width="28" height="28" /> con los siguientes comandos: 
 
     ``` 
     > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
@@ -42,6 +72,7 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     
 6. Revisar la versión de Chocolatey instalada con el comando: `choco` para visualizar la versión y el comando de ayuda.
 
+<a name="docker-machine"></a> 
 ### Instalación de Docker Machine
 
 7. Instalar **docker-machine** con **Chocolatey** ejecutar el siguiente comando: 
@@ -52,6 +83,7 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     
 8. Para validar la instalación ejecutar el comando: `docker-machine version`. 
 
+<a name="crear-machine"></a> 
 ## Creación de máquina con Docker Machine 
 
 1. Para crear la máquina, a la cual llamamos **\*vmmtie\***; se debe ejecutar el siguiente comando: 
@@ -72,6 +104,7 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     > docker-machine start NOMBREMV 
     ``` 
     
+<a name="crear-contenedores"></a> 
 ## Creación de contenedores 
 
 1. Iniciar sesión a la máquina mediante SSH con el comando:  
@@ -95,6 +128,7 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     
     _Al finalizar, se va a cerrar la sesión de la máquina y se tendrá que hacer de nuevo el login con ssh._ 
     
+<a name="docker-compose"></a> 
 ### Instalación de docker-compose
 
 4. Instalar docker-compose dentro de docker-machine:
@@ -104,6 +138,7 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     > sudo chmod +x /usr/local/bin/docker-compose
     ``` 
 
+<a name="clonar"></a> 
 ### Clonar repositorio con archivos de configuración 
 
 4. Para ejecutar un Alias Git Temporal para no realizar la instalación. 
@@ -134,7 +169,8 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     ``` 
     sudo docker-compose up --build -d 
     ``` 
-    
+
+<a name="ref-comandos"></a> 
 ## Referencia de líneas de comandos 
 
 Comando                             | Descripción
@@ -165,6 +201,7 @@ docker images                       | Listado de imágenes con su nivel, reposit
 docker image rm IMAGEN              | Elimina la imágen
 docker rmi -f $(docker images -a -q) | Eliminar todas las imagenes del repositorio
 
+<a name="errores"></a> 
 ## Solución de errores 
 En caso de que el contenedor de MySQL durante la revisión de los logs muestre el siguiente error: 
 
