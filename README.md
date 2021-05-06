@@ -24,13 +24,17 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
     ``` 
 ### Instalación de Docker Desktop
 
-4. Instalar [Docker Desktop](https://www.docker.com/products/docker-desktop) y posteriormente einiciar la computadora. 
+4. Instalar [Docker Desktop](https://www.docker.com/products/docker-desktop) y posteriormente reiniciar la computadora. 
 
-    [![Docker Desktop](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrQRbJtTXmruUZNgXGDTbXEP2yUV0_cKm_D7l6Ahxi5x-QjOci9KHa32Nie3NyCOnyM70&usqp=CAU)](https://www.virtualbox.org/wiki/Downloads)
+    [![Docker Desktop](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrQRbJtTXmruUZNgXGDTbXEP2yUV0_cKm_D7l6Ahxi5x-QjOci9KHa32Nie3NyCOnyM70&usqp=CAU)](https://www.virtualbox.org/wiki/Downloads) 
+
+    Nota: Si después de reiniciar aparece la siguiente ventana; no hay que preocuparse, solo de clic en el botón OK y continuar con las instalaciones. 
+    
+    [![Docker Error](https://user-images.githubusercontent.com/59643335/103649036-13a48000-4f5e-11eb-8154-bce9cfccf31b.png) 
 
 ### Instalación de Chocolatey
 
-5. Instalar **Chocolatey** con **Windows PowerShell** con los siguientes comandos: 
+5. Instalar **Chocolatey** <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Chocolatey_icon.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="28" height="28" /> con **Windows PowerShell** con los siguientes comandos: 
 
     ``` 
     > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
