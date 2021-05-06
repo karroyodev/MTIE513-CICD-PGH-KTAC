@@ -8,7 +8,7 @@ services:
   ############################
   nginx-reverse-proxy:
     image: jwilder/nginx-proxy:alpine
-    container_name: 'MRSI-Proxy'
+    container_name: 'KAC-Proxy'
     restart: always
     ports:
         - '80:80'
@@ -22,7 +22,7 @@ services:
   ###################
   mysql:
     image: mysql:8
-    container_name: MRSI-MySQL
+    container_name: KAC-MySQL
     # restart: on-failure
     ports:
       - 3306:3306
@@ -48,7 +48,7 @@ services:
   ###########################
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
-    container_name: MRSI-ElasticSearch
+    container_name: KAC-ElasticSearch
     restart: always
     expose:
       - 9200
@@ -78,7 +78,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-logstash
-    container_name: MRSI-Logstash
+    container_name: KAC-Logstash
     # restart: on-failure
     depends_on:
       - mysql
@@ -99,7 +99,7 @@ services:
   ####################
   kibana:
     image: docker.elastic.co/kibana/kibana:7.9.3
-    container_name: MRSI-Kibana
+    container_name: KAC-Kibana
     restart: always
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
