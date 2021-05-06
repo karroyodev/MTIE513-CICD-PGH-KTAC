@@ -17,7 +17,7 @@ Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios
 
     [![VirtualBox](https://www.igestweb.es/blog/wp-content/uploads/2017/09/Virtualbox-logo.jpg)](https://www.virtualbox.org/wiki/Downloads)
 
-3. Abrir la consola de **Windows PowerShell** <img src="https://cdn.iconscout.com/icon/free/png-512/powershell-2-569189.png" alt="powershell" style="width:25px;"/>; de preferencia como administrador y ejecutar el siguiente comando: 
+3. Abrir la consola de **Windows PowerShell** <img src="https://cdn.iconscout.com/icon/free/png-512/powershell-2-569189.png" alt="powershell" style="width:25px !important; height:auto !important;"/>; de preferencia como administrador y ejecutar el siguiente comando: 
 
     ``` 
     > bcdedit /set hypervisorlaunchtype off 
