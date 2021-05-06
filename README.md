@@ -4,6 +4,8 @@
 
 Proyecto Final - Modelos de Arquitecturas Orientadas a Servicios 
 
+[![Generic badge](https://img.shields.io/badge/version-1.0.0-blue)](https://shields.io/) 
+
 ## Introducción
 
 Crear una solución de inteligencia de negocios con Kibana, la cual nos proporciona la visualización de datos y de búsqueda para los datos indexados en Elasticsearch; que es un motor de analítica y análisis distribuido para todos los tipos de datos, además de poder obtener información de varias fuentes (En este caso MySQL). 
